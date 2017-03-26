@@ -62,9 +62,9 @@ public class CardDeck {
         return deck[top];
     }
 
-    int[] addElement(int[] org, int added) {
-        int[] result = Arrays.copyOf(org, org.length +1);
-        result[org.length] = added;
+    Card[] addCard(Card[] oldArr, Card added) {
+        Card[] result = Arrays.copyOf(oldArr, oldArr.length +1);
+        result[oldArr.length] = added;
         return result;
     }
 }
