@@ -6,10 +6,9 @@ public class Card {
     private Color c;
     private boolean isFaceUp;
 
-    public Card(Card.Color c, int value) throws CardException{
-        if (value < 1 || value > 13){
-            throw new CardException("TOO HIGH");
-        }
+    public Card(Card.Color c, int value) {
+
+        //throw new CardException("TOO HIGH");
         this.value = value;
         this.c = c;
         this.isFaceUp = false;

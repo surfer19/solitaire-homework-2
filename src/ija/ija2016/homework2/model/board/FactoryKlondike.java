@@ -3,35 +3,31 @@ package ija.ija2016.homework2.model.board;
 import ija.ija2016.homework2.model.Card;
 import ija.ija2016.homework2.model.CardDeck;
 import ija.ija2016.homework2.model.CardException;
+import ija.ija2016.homework2.model.CardStack;
 
 
 public class FactoryKlondike extends AbstractFactorySolitaire {
-    public Card createCard(Card.Color clubs, int i){
-        try {
-            return new Card(clubs, i);
-        }catch(CardException e)
-        {
-            e.getMessage();
-            return null;
-        }
-
+    public Card createCard(Card.Color color, int i){
+            Card someCard = new Card(color, i);
+            if (someCard.value() == 0){
+                return null;
+            }
+            return someCard;
     }
     public CardDeck createCardDeck() {
+
         return CardDeck.createStandardDeck();
     }
-    public CardDeck createTargetPack(Card.Color clubs){
-//        Card newCard = new Card();
-        try {
-            CardDeck newCardDeck = new CardDeck(99);
-            for(int i = 0; i < 14; i++) {
+    public CardDeck createTargetPack(Card.Color pack_color){
 
-                Card newCard = new Card(clubs, i);
-                newCardDeck.put(newCard);
-            }
-            return newCardDeck;
-        }
-        catch (CardException e){
-            return null;
-        }
+        CardDeck newCardDeck = new CardDeck(0);
+
+        return newCardDeck;
+
+    }
+    public CardStack createWorkingPack(){
+        CardStack newCardStack = new CardStack(52);
+
+        return newCardStack;
     }
 }
